@@ -13,12 +13,13 @@ public:
 };
 int main()
 {
-  Node *head = new Node(10);
-  Node *a = new Node(20);
+  Node* head = new Node(10);
+  Node* a = new Node(20);
 
   head->next = a;
 
-  cout << head->val << endl;
-  cout << a->val << endl;
+  cout <<head->val << endl;
+  cout <<a->val << endl;
+  cout <<head->next->val << endl;
   return 0;
 }

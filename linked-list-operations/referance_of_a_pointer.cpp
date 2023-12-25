@@ -3,7 +3,7 @@ using namespace std;
 
 void fun(int *p)
 {
-  *p = 20;
+  *p = 201;
 }
 int main()
 {
