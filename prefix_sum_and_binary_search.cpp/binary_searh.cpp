@@ -1,40 +1,45 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
+
 int main()
 {
+
     int n;
-    cin>>n;
+    cin >> n;
     int a[n];
-    for(int i=0;i<n;i++)
+    for (int i = 0; i < n; i++)
     {
-        cin>>a[i];
+        cin >> a[i];
     }
+
     int x;
-    cin>>x;
-    int l=0;
-    int r=n-1;
-    bool flag=false;
-    while(l<=r)
+    cin >> x;
+    int l = 0;
+    int r = n - 1;
+    bool flag = false;
+
+    while (l <= r)
     {
-        int mid_index=(l+r)/2;
-        if(a[mid_index]==x)
+        int mid_index = (l + r) / 2;
+        if (a[mid_index] == x)
         {
-            flag=true;
+            flag = true;
             break;
         }
-        if(x>a[mid_index])
+        if (x > mid_index)
         {
-            // dane jao
-            l=mid_index+1;
+            l = mid_index + 1;
         }
-        else 
+        else
         {
-            // bame jao
-            r=mid_index-1;
+            r = mid_index - 1;
         }
     }
-    cout<<l<<" "<<r<<endl;
-    if(flag==true) cout<<"YES"<<endl;
-    else cout<<"NO"<<endl;
+
+    if (flag)
+        cout << "YES";
+    else
+        cout << "NO";
+
     return 0;
 }

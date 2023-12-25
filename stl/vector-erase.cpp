@@ -5,7 +5,7 @@ int main()
 {
 
   vector<int> v = {1, 2, 3, 4, 5};
-  // erase a emement 
+  // erase a element 
   // v.erase(v.begin() + 3);
 
   // erase some element

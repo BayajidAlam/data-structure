@@ -19,7 +19,7 @@ int main()
   //   cout << v[i] << endl;
   // }
 
-  // otherway
+  // other way
   for (string val : v)
   {
     cout << val << endl;

@@ -3,7 +3,8 @@ using namespace std;
 
 int main()
 {
-
+  //capacity will increase doubly every time like
+  //0 1 2 4 8 16 32
   vector<int> v;
   ;
   // cout << v.max_size() << endl;
