@@ -39,6 +39,14 @@ void insert_at_position(Node *head, int pos, int val)
   {
     // locate the position - 1 node
     tmp = tmp->next;
+    // handle error
+    // if any request for insert at a invalid position
+    if (tmp == NULL)
+    {
+      cout << "Invalid position" << endl
+           << endl;
+      return;
+    }
   }
   // connect next node from tmp.next to new_node.next
   // add new node to tmp.next
@@ -85,6 +93,22 @@ void delete_from_positions(Node *head, int pos)
   for (int i = 1; i <= pos - 1; i++)
   {
     tmp = tmp->next;
+    // handle error
+    // if any request for delete a invalid position
+    if (tmp == NULL)
+    {
+      cout << endl;
+      cout << "Invalid position" << endl
+           << endl;
+      return;
+    }
+  }
+  if (tmp->next == NULL)
+  {
+    cout << endl;
+    cout << "Invalid position" << endl
+         << endl;
+    return;
   }
   // create a node that will be delete
   Node *delete_node = tmp->next;
@@ -99,6 +123,14 @@ void delete_from_positions(Node *head, int pos)
 // delete head
 void delete_head(Node *&head)
 {
+  // if head is equal to NULL
+  if (head == NULL)
+  {
+    cout << endl;
+    cout << "Head is not available" << endl
+         << endl;
+    return;
+  }
   // save the node that will be delete
   Node *delete_node = head;
   // transform the head to next of the head
