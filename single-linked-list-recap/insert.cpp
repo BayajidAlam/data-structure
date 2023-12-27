@@ -44,6 +44,12 @@ void insert_at_tail(Node *&head, Node *&tail, int val)
   tail = new_node;
 }
 
+void delete_head(Node *&head){
+  Node *delete_node = head;
+  head = head->next;
+  delete delete_node;
+}
+
 void print_node(Node *head)
 {
   Node *tmp = head;
@@ -91,7 +97,10 @@ int main()
   }
   else if (pos == 0)
   {
-    insert_at_head(head, val);
+    // insert_at_head(head, val);
+    print_node(head);
+    cout << endl;
+    delete_head(head);
     print_node(head);
   }
   else if (pos == size(head))
