@@ -1,35 +1,36 @@
-#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
 
-void reverseArray(int v[], int n) {
-    int st = 0;
-    int end = n - 1;
-    while (st < end) {
-        int temp = v[st];
-        v[st] = v[end];
-        v[end] = temp;
+void reverse_array(int a[], int n)
+{
+  int st = 0;
+  int end = n - 1;
+  while (st <= end)
+  {
+    int tmp = a[st];
+    a[st] = a[end];
+    a[end] = tmp;
 
-        st++;
-        end--;
-    }
+    st++;
+    end--;
+  }
 }
+int main()
+{
 
-int main() {
-    int n;
-    std::cin >> n;
-    
-    int* v = new int[n];
+  int n;
+  cin >> n;
+  int a[n];
+  for (int i = 0; i < n; i++)
+  {
+    cin >> a[i];
+  }
 
-    for (int i = 0; i < n; i++) {
-        std::cin >> v[i];
-    }
+  reverse_array(a, n);
 
-    reverseArray(v, n);
-
-    for (int i = 0; i < n; i++) {
-        std::cout << v[i] << " ";
-    }
-
-    delete[] v;
-
-    return 0;
+  for (int i = 0; i < n; i++)
+  {
+    cout << a[i] << " ";
+  }
+  return 0;
 }
