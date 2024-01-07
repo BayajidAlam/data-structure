@@ -1,3 +1,4 @@
+
 #include <bits/stdc++.h>
 using namespace std;
 class Node
@@ -14,7 +15,6 @@ public:
   }
 };
 
-// print one direction
 void print_normal(Node *head)
 {
   Node *tmp = head;
@@ -23,10 +23,9 @@ void print_normal(Node *head)
     cout << tmp->val << " ";
     tmp = tmp->next;
   }
-  cout << endl;
+   cout << endl;
 }
 
-// print form tail
 void print_reverse(Node *tail)
 {
   Node *tmp = tail;
@@ -43,14 +42,12 @@ int main()
   Node *head = new Node(10);
   Node *a = new Node(20);
   Node *b = new Node(30);
-  Node *tail = b;
 
   head->next = a;
   a->prev = head;
   a->next = b;
   b->prev = a;
-
   print_normal(head);
-  print_reverse(tail);
+  print_reverse(b);
   return 0;
 }

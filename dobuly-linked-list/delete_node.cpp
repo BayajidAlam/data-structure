@@ -64,6 +64,37 @@ void insert_at_tail(Node *&head, Node *&tail, int val)
   tail = tail->next;
 }
 
+void delete_at_pos(Node *head, int pos)
+{
+  Node *tmp = head;
+  for (int i = 1; i <= pos - 1; i++)
+  {
+    tmp = tmp->next;
+  }
+  // create a node that will be removed from list
+  Node *delete_node = tmp->next;
+  // connect tmp and next of the next node
+  tmp->next = tmp->next->next;
+  tmp->next->prev = tmp;
+  delete delete_node;
+}
+
+void delete_tail(Node *&tail)
+{
+  Node *delete_node = tail;
+  tail = tail->prev;
+  delete delete_node;
+  tail->next = NULL;
+}
+
+void delete_head(Node *&head)
+{
+  Node *delete_node = head;
+  head = head->next;
+  delete delete_node;
+  head->prev = NULL;
+}
+
 int size(Node *head)
 {
   Node *tmp = head;
@@ -100,33 +131,39 @@ void print_reverse(Node *tail)
 
 int main()
 {
-  Node *head = NULL;
-  Node *tail = NULL;
+  Node *head = new Node(10);
+  Node *a = new Node(20);
+  Node *b = new Node(30);
+  Node *c = new Node(40);
+  Node *tail = c;
+
+  head->next = a;
+  a->next = b;
+  b->next = c;
+  a->prev = head;
+  b->prev = a;
+  c->prev = b;
 
   int pos, val;
   cin >> pos >> val;
-  if (pos == 0)
-  {
-    insert_at_head(head, tail, val);
-    print_normal(head);
-    print_reverse(tail);
-  }
-  else if (pos == size(head))
-  {
-    insert_at_tail(head, tail, val);
-    print_normal(head);
-    print_reverse(tail);
-  }
-  else if (pos >= (size(head)))
+
+  if (pos >= size(head))
   {
     cout << "Invalid position" << endl;
   }
+  else if (pos == 0)
+  {
+    delete_head(head);
+  }
+  else if (pos == size(head) - 1)
+  {
+    delete_tail(tail);
+  }
   else
   {
-    insert_at_position(head, 2, 50);
-    print_normal(head);
-    print_reverse(tail);
+    delete_at_pos(head, pos);
   }
-
+  print_normal(head);
+  print_reverse(tail);
   return 0;
 }
