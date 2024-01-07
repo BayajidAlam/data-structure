@@ -10,5 +10,10 @@ int main()
   {
     cout << *it << " ";
   }
+  // way 2
+  for (int val : myList2)
+  {
+    cout << val << " ";
+  }
   return 0;
 }

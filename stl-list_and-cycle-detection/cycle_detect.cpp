@@ -18,12 +18,16 @@ int main()
   Node *head = new Node(10);
   Node *a = new Node(20);
   Node *b = new Node(30);
+  Node *c = new Node(40);
 
   head->next = a;
   a->next = b;
+  b->next = c;
+  c->next = a;
 
   Node *slow = head;
   Node *fast = head;
+
   bool flag = false;
 
   while (fast != NULL && fast->next != NULL)
@@ -36,11 +40,14 @@ int main()
       break;
     }
   }
-  if (flag == true)
+  if (flag)
   {
-    cout << "Cycle detected" << endl;
+
+    cout << "Cycle Detected" << endl;
   }
   else
-    cout << "No Cycle" << endl;
+  {
+    cout << "Cycle Not Detected" << endl;
+  }
   return 0;
 }
