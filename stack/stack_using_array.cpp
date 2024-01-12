@@ -42,7 +42,7 @@ int main()
     st.push(x);
   }
 
-  while (st.empty() == false)
+  while (!st.empty())
   {
     cout << st.top() << endl;
     st.pop();

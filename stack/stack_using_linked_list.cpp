@@ -22,16 +22,17 @@ public:
   Node *tail = NULL;
   int sz = 0;
   void push(int val)
-  { 
+  {
     sz++;
     Node *new_node = new Node(val);
-    if(head == NULL){
+    if (head == NULL)
+    {
       head = new_node;
       tail = new_node;
       return;
     }
-    new_node->prev = tail;
     tail->next = new_node;
+    new_node->prev = tail;
     tail = new_node;
   }
   void pop()
@@ -39,10 +40,10 @@ public:
     sz--;
     Node *delete_node = tail;
     tail = tail->prev;
-    if(tail == NULL){
+    if (tail == NULL)
       head = NULL;
-    }
-    else{
+    else
+    {
       tail->next = NULL;
     }
     delete delete_node;
@@ -55,7 +56,7 @@ public:
   {
     return sz;
   }
-  bool isEmpty()
+  bool empty()
   {
     if (sz == 0)
       return true;
@@ -66,18 +67,15 @@ public:
 int main()
 {
   myStack st;
-
   int n;
   cin >> n;
-
   for (int i = 0; i < n; i++)
   {
     int x;
     cin >> x;
     st.push(x);
   }
-
-  while (!st.isEmpty())
+  while (!st.empty())
   {
     cout << st.top() << endl;
     st.pop();

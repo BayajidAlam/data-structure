@@ -17,11 +17,11 @@ public:
   {
     return l.back();
   }
-  int size()
+  int sz()
   {
     return l.size();
   }
-  bool isEmpty()
+  bool empty()
   {
     if (l.size() == 0)
       return true;
@@ -29,13 +29,12 @@ public:
       return false;
   }
 };
+
 int main()
 {
   myStack st;
-
   int n;
   cin >> n;
-
   for (int i = 0; i < n; i++)
   {
     int x;
@@ -43,7 +42,7 @@ int main()
     st.push(x);
   }
 
-  while (!st.isEmpty())
+  while (!st.empty())
   {
     cout << st.top() << endl;
     st.pop();

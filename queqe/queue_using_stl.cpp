@@ -5,7 +5,6 @@ class myQueue
 {
 public:
   list<int> l;
-
   void push(int val)
   {
     l.push_back(val);
@@ -22,12 +21,9 @@ public:
   {
     return l.size();
   }
-  bool isEmpty()
+  bool empty()
   {
-    if (l.size() == 0)
-      return true;
-    else
-      return false;
+    return l.empty();
   }
 };
 int main()
@@ -41,7 +37,7 @@ int main()
     cin >> x;
     q.push(x);
   }
-  while (!q.isEmpty())
+  while (!q.empty())
   {
     cout << q.front() << endl;
     q.pop();

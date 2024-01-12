@@ -13,26 +13,24 @@ public:
     this->prev = NULL;
   }
 };
-
 class myQueue
 {
 public:
   Node *head = NULL;
   Node *tail = NULL;
   int sz = 0;
-
   void push(int val)
   {
     sz++;
-    Node *new_Node = new Node(val);
+    Node *new_node = new Node(val);
     if (head == NULL)
     {
-      head = new_Node;
-      tail = new_Node;
+      head = new_node;
+      tail = new_node;
       return;
     }
-    tail->next = new_Node;
-    new_Node->prev = tail;
+    tail->next = new_node;
+    new_node->prev = tail;
     tail = tail->next;
   }
   void pop()
@@ -44,6 +42,7 @@ public:
     {
       tail = NULL;
       delete delete_node;
+      return;
     }
     head->prev = NULL;
     delete delete_node;
@@ -56,7 +55,7 @@ public:
   {
     return sz;
   }
-  bool isEmpty()
+  bool empty()
   {
     if (sz == 0)
       return true;
@@ -75,7 +74,8 @@ int main()
     cin >> x;
     q.push(x);
   }
-  while (!q.isEmpty())
+
+  while (!q.empty())
   {
     cout << q.front() << endl;
     q.pop();
