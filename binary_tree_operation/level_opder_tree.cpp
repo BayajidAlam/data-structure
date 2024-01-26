@@ -17,25 +17,17 @@ public:
 // level by level
 void level_order(Node *root)
 {
-  if (root == NULL)
-  {
-    cout << "root is NULL" << endl;
-    return;
-  }
   // create a queue and push the root
   queue<Node *> q;
   q.push(root);
-
   // as long as queue is not empty the the following operation
   while (!q.empty())
   {
     // save the front node on pointer f and pop it
     Node *f = q.front();
     q.pop();
-
     // output the value of f
     cout << f->val << " ";
-
     // if left or right of f exist push to queue
     if (f->left)
       q.push(f->left);
